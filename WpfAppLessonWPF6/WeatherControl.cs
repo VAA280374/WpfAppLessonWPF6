@@ -12,12 +12,13 @@ namespace WpfAppLessonWPF6
         public static readonly DependencyProperty TemperatureProperety; // взамен закрытого поля
         //private int temperature;
         private string windDirection;
+        private int windSpeed;
         private enum precipitation
         {
-            Sunny = 0,
-            Cloudy = 1,
-            Rain = 2,
-            Snow = 3,
+            Sunny,
+            Cloudy,
+            Rain,
+            Snow
         };
         public int Temperature
         {
@@ -39,10 +40,16 @@ namespace WpfAppLessonWPF6
             get => windDirection; 
             set => windDirection = value; 
         }
-        public WeatherControl(int temperature, string windDirection)
+        public int WindSpeed
+        {
+            get => windSpeed;
+            set => windSpeed = value;
+        }
+        public WeatherControl(int temperature, string windDirection, string precipitation)
         { 
             this.Temperature = temperature;
             this.WindDirection = windDirection;
+            this.precipitation = precipitation;
         }
         static WeatherControl()
         {
